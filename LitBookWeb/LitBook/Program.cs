@@ -1,3 +1,6 @@
+using LitBook.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace LitBook
 {
     public class Program
@@ -8,6 +11,8 @@ namespace LitBook
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Defaultconn")));
            
 
             var app = builder.Build();
