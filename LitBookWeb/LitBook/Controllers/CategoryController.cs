@@ -23,5 +23,11 @@ namespace LitBook.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Create(Category obj)
+        {
+            return View();
+        }
     }
 }
