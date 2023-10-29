@@ -58,14 +58,14 @@ namespace LitBook.Controllers
         [HttpPost]
         public IActionResult Edit(Category obj)
         {
-            if (obj.Name == obj.DisplayOrder.ToString())
-            {
-                ModelState.AddModelError("name", "The DisplayOrder cannot exactly match the name.");
-            }
+            //if (obj.Name == obj.DisplayOrder.ToString())
+            //{
+            //    ModelState.AddModelError("name", "The DisplayOrder cannot exactly match the name.");
+            //}
 
             if (ModelState.IsValid)
             {
-                _context.Categories.Add(obj);
+                _context.Categories.Update(obj);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
